@@ -102,3 +102,18 @@ while IFS= read -r file_name; do
     fi
 done < <(find "/storage/emulated/0/Download/2f933f24eb93f9b1b68de52e678e0633/" -type f -maxdepth 1 -exec basename {} \;)
 ```
+
+```
+# 首先创建目标文件夹，如果它不存在的话
+mkdir -p "/storage/emulated/0/okk (2)"
+
+# 然后使用 while 循环读取文件名，并移动文件
+while IFS= read -r file_name; do
+    if [ -f "/storage/emulated/0/okk (1)/$file_name" ]; then
+        echo "Moving $file_name to /storage/emulated/0/okk (2)"
+        mv "/storage/emulated/0/okk (1)/$file_name" "/storage/emulated/0/okk (2)/"
+    else
+        echo "File $file_name does not exist in /storage/emulated/0/okk (1)"
+    fi
+done < "/storage/emulated/0/okk (1)/is.txt"
+```
